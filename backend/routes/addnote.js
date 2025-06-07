@@ -13,9 +13,12 @@ router.post('/', async (req, res) => {
  const exist=await  usernotes.findOne({ userId: new  ObjectId(userId) })
 if(exist){
     try{
+        // exist.content.unshift("your task");
     exist.content.push(content);
     await exist.save()
-    res.json({message:"ok bro its not finding the userid"})
+    res.json({message:"ok bro its not finding the userid",
+        showtext:exist.content
+    })
 }catch(error){
         console.log("uanble to push", error)
     }
@@ -26,8 +29,10 @@ if(exist){
     userId:new ObjectId(userId),
     content:[content]
  })
+//  newnotes.content.unshift("your-task")
  await newnotes.save()
-res.json({message:"task added sucessfully"})
+res.json({message:"task added sucessfully",
+    showtext:newnotes.content})
 }
     }catch(error){
         res.json({message:"internal server error"})
