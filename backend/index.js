@@ -7,11 +7,13 @@ const { connectdb } =require('./db')
 const createroute=require("./routes/create")
 const loginroute=require("./routes/login")
 const addnotes=require("./routes/addnote")
+const shownotes=require("./routes/shownotes")
 try{
 connectdb()
 app.use('/api/create',createroute)
 app.use('/api/login',loginroute)
 app.use('/api/addnotes',addnotes)
+app.use('/api/notes',shownotes)
  console.log("somthingggggggg is wrong ")
 }catch(error)
 {

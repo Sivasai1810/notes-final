@@ -4,20 +4,18 @@
  import Login from './login'
 import Create from './create'
 import Empty from './empty'
+import Text from "./text"
  import './App.css'
 
 
 function App() {
-console.log('Create:', Create);
-console.log('Login:', Login);
-
   return(
      <BrowserRouter>
          <Routes>
           <Route path='/create' element={<Create />}/>
           <Route  path='*' element={<Login />}/>
           <Route path='/empty' element={<Empty />}/>
-          
+          <Route path='text' element={<Text />}/>
          </Routes>
      </BrowserRouter>
   

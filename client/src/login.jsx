@@ -22,7 +22,8 @@ console.log(res.data.userId)
 setMessage1(res.data.message)
 if(res.data.success){
    alert(res.data.message)
-  navigate('/empty')
+  localStorage.setItem("userId",res.data.userId)
+  navigate('/text')
  
 }
 }
