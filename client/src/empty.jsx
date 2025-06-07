@@ -14,7 +14,7 @@ setNote((n)=>({
 
 const handlesavenote= async(e)=>{
 e.preventDefault()
-const res=await axios.post("http://192.168.43.70:2023/api/addnotes",note)
+const res=await axios.post("http://localhost:2023/api/addnotes",note)
 // console.log(res.data.message)
 // alert(res.data.message)
 //setMessage2(res.data.text)

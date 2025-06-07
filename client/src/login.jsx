@@ -17,7 +17,7 @@ const handlepush=(e)=>{
 const handleroute= async(e)=>{
 e.preventDefault()
 try{
-const res=await  axios.post("http://192.168.43.70:2023/api/login",data)
+const res=await  axios.post("http://localhost:2023/api/login",data)
 console.log(res.data.userId)
 setMessage1(res.data.message)
 if(res.data.success){
