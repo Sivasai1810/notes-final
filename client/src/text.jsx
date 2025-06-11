@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from 'axios'
-
+import { Link,useNavigate } from "react-router-dom";
 function  Text (){
-   
+
+   const navigate=useNavigate()
    const userId=localStorage.getItem("userId")
-    
    const [addnotes,setNote]=useState({
         userId:localStorage.getItem("userId"),
         content:""
@@ -33,7 +33,12 @@ const res=await axios.post("http://localhost:2023/api/addnotes",addnotes)
 //setMessage2(res.data.text)
   setMessage3(res.data.showtext)
 }
-  
+  const handeledit=(index,userId,element)=>{
+  const data={index,userId,element}
+    navigate('/Edit')
+     localStorage.setItem("index",JSON.stringify(data))
+ 
+  }
     
  return (
     <div>
@@ -49,8 +54,13 @@ const res=await axios.post("http://localhost:2023/api/addnotes",addnotes)
      <ul>
 {message3.map((element,index) => <li  key={index}>
      {element}
-</li>)}
+      
+     <button onClick={(e)=>handeledit(index,userId,element)}>edit</button>
+     <button>delete</button>
+
+</li>    )} 
         </ul>
+   
        
     </form>
     
